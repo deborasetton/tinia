@@ -27,7 +27,7 @@ module Tinia
         # a filter key, that is, the key-value pair will be converted to a term in the
         # boolean query (bq) that will be sent to CloudSearch.
         # These four are CloudSearch parameters on their own, and so are treated differently.
-        filters = @opts.reject {|k, v| k.in?([:page, :per_page, :order_by, :sort_mode])}
+        filters = @opts.reject {|k, v| k.in?([:page, :per_page, :order_by, :sort_mode, :facet])}
 
         filters.each do |field, value|
           bq_terms << case value
